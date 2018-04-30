@@ -7,24 +7,23 @@
     tools:context="edu.illinois.cs.cs125.finalproject1.MainActivity">
 
 
-
     <ImageView
         android:id="@+id/imageView"
-        android:clickable="true"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_below="@+id/ivGallery"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="59dp"
+        android:layout_marginTop="50dp"
         app:srcCompat="@drawable/panda" />
 
     <ImageView
         android:id="@+id/ivCamera"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
+        android:layout_alignLeft="@+id/imageView"
+        android:layout_alignParentTop="true"
         android:layout_alignStart="@+id/imageView"
-        android:layout_alignLeft="@id/imageView"
-        android:layout_marginBottom="195dp"
+        android:layout_marginTop="16dp"
         app:srcCompat="@android:drawable/ic_menu_camera" />
 
     <ImageView
@@ -40,9 +39,9 @@
         android:id="@+id/ivImage"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
+        android:layout_above="@+id/applyBlackFilter"
         android:layout_centerHorizontal="true"
-        android:layout_marginBottom="155dp"
+        android:layout_marginBottom="31dp"
         app:srcCompat="@android:drawable/star_big_on" />
 
     <Button
@@ -100,5 +99,25 @@
         android:layout_alignTop="@+id/invert"
         android:clickable="true"
         android:text="Contrast" />
+
+    <Button
+        android:id="@+id/revert"
+        android:layout_width="77dp"
+        android:layout_height="36dp"
+        android:layout_alignBottom="@+id/ivImage"
+        android:layout_alignEnd="@+id/saturation"
+        android:clickable="true"
+        android:text="REVERT" />
+
+
+
+
+
+
+
+
+
+
+
 
 </RelativeLayout>
