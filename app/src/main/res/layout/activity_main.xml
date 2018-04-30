@@ -6,17 +6,11 @@
     android:layout_height="match_parent"
     tools:context="edu.illinois.cs.cs125.finalproject1.MainActivity">
 
-    <Button
-        android:id="@+id/doBrightness"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginBottom="11dp"
-        android:text="Brightness" />
+
 
     <ImageView
         android:id="@+id/imageView"
+        android:clickable="true"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
@@ -29,6 +23,7 @@
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
         android:layout_alignStart="@+id/imageView"
+        android:layout_alignLeft="@id/imageView"
         android:layout_marginBottom="195dp"
         app:srcCompat="@android:drawable/ic_menu_camera" />
 
@@ -47,7 +42,63 @@
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
-        android:layout_marginBottom="115dp"
+        android:layout_marginBottom="155dp"
         app:srcCompat="@android:drawable/star_big_on" />
+
+    <Button
+        android:id="@+id/doBrightness"
+        android:layout_width="115dp"
+        android:layout_height="50dp"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="96dp"
+        android:layout_toStartOf="@+id/rotate"
+        android:text="Brightness" />
+
+    <Button
+        android:id="@+id/applyBlackFilter"
+        android:layout_width="115dp"
+        android:layout_height="50dp"
+        android:layout_alignTop="@+id/doBrightness"
+        android:layout_centerHorizontal="true"
+        android:clickable="true"
+        android:text="Black Filter" />
+
+    <Button
+        android:id="@+id/saturation"
+        android:layout_width="115dp"
+        android:layout_height="50dp"
+        android:layout_alignParentEnd="true"
+        android:layout_alignTop="@+id/doBrightness"
+        android:layout_marginEnd="16dp"
+        android:clickable="true"
+        android:text="Saturation" />
+
+    <Button
+        android:id="@+id/invert"
+        android:layout_width="115dp"
+        android:layout_height="50dp"
+        android:layout_alignParentBottom="true"
+        android:layout_alignStart="@+id/doBrightness"
+        android:layout_marginBottom="32dp"
+        android:clickable="true"
+        android:text="INVERT" />
+
+    <Button
+        android:id="@+id/rotate"
+        android:layout_width="115dp"
+        android:layout_height="50dp"
+        android:layout_alignTop="@+id/invert"
+        android:layout_centerHorizontal="true"
+        android:clickable="true"
+        android:text="ROTATE" />
+
+    <Button
+        android:id="@+id/contrast"
+        android:layout_width="115dp"
+        android:layout_height="50dp"
+        android:layout_alignStart="@+id/saturation"
+        android:layout_alignTop="@+id/invert"
+        android:clickable="true"
+        android:text="Contrast" />
 
 </RelativeLayout>

@@ -10,6 +10,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.Toast;
+import android.util.Log;
 
 import com.kosalgeek.android.photoutil.CameraPhoto;
 import com.mukesh.image_processing.ImageProcessor;
@@ -26,35 +27,83 @@ public class MainActivity extends AppCompatActivity {
 
 
     ImageView imageView;
-    Bitmap bitmap;
+    Bitmap original;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        bitmap = BitmapFactory.decodeResource(getResources(), R.drawable.panda);
-
+        original = BitmapFactory.decodeResource(getResources(), R.drawable.panda);
         final ImageProcessor imageProcessor = new ImageProcessor();
-       // bitmap = imageProcessor.roundCorner(bitmap, 10);
-
         imageView = (ImageView) findViewById(R.id.imageView);
-        imageView.setImageBitmap(bitmap);
 
-        Button btn = (Button) findViewById(R.id.doBrightness);
-        btn.setOnClickListener(new View.OnClickListener() {
+        final Button brightness = (Button) findViewById(R.id.doBrightness);
+        brightness.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                switch(v.getId())
-                {
-                    case R.id.doBrightness:
-                        bitmap = imageProcessor.doBrightness(bitmap, 100);
-                    break;
+                Log.d(TAG,"button clicked");
+                    original = imageProcessor.doBrightness(original, 100);
+                    imageView.setImageBitmap(original);
+                Toast.makeText(MainActivity.this, "You increased the brightness~", Toast.LENGTH_LONG).show();
                 }
+        });
 
-                
+        final Button black = (Button) findViewById(R.id.applyBlackFilter);
+        black.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Log.d(TAG,"button clicked");
+                original = imageProcessor.applyBlackFilter(original);
+                imageView.setImageBitmap(original);
+                Toast.makeText(MainActivity.this, "You applied a black filter~", Toast.LENGTH_LONG).show();
             }
         });
+
+        final Button saturation = (Button) findViewById(R.id.saturation);
+        saturation.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Log.d(TAG,"button clicked");
+                original = imageProcessor.applySaturationFilter(original,50);
+                imageView.setImageBitmap(original);
+                Toast.makeText(MainActivity.this, "You increased saturation~", Toast.LENGTH_LONG).show();
+            }
+        });
+
+        final Button invert = (Button) findViewById(R.id.invert);
+        invert.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Log.d(TAG,"button clicked");
+                original = imageProcessor.doInvert(original);
+                imageView.setImageBitmap(original);
+                Toast.makeText(MainActivity.this, "You have inverted the image~", Toast.LENGTH_LONG).show();
+            }
+        });
+
+        final Button rotate = (Button) findViewById(R.id.rotate);
+        rotate.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Log.d(TAG,"button clicked");
+                original = imageProcessor.rotate(original, 90);
+                imageView.setImageBitmap(original);
+                Toast.makeText(MainActivity.this, "You have rotated the image by 90 degree~", Toast.LENGTH_LONG).show();
+            }
+        });
+
+        final Button contrast = (Button) findViewById(R.id.contrast);
+        contrast.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Log.d(TAG,"button clicked");
+                original = imageProcessor.createContrast(original, 90);
+                imageView.setImageBitmap(original);
+                Toast.makeText(MainActivity.this, "You have increased contrast", Toast.LENGTH_LONG).show();
+            }
+        });
+
 
         cameraPhoto = new CameraPhoto(getApplicationContext());
 
@@ -65,7 +114,7 @@ public class MainActivity extends AppCompatActivity {
         ivCamera.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
+                Log.d(TAG,"button clicked");
                 try {
                     startActivityForResult(cameraPhoto.takePhotoIntent(), CAMERA_REQUEST);
                     cameraPhoto.addToGallery();
