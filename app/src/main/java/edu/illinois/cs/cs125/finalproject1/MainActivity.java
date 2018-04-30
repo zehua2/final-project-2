@@ -104,6 +104,17 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+        final Button revert = (Button) findViewById(R.id.revert);
+        revert.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Log.d(TAG,"button clicked");
+                original = BitmapFactory.decodeResource(getResources(), R.drawable.panda);
+                imageView.setImageBitmap(original);
+                Toast.makeText(MainActivity.this, "Back to the original image~", Toast.LENGTH_LONG).show();
+            }
+        });
+
 
         cameraPhoto = new CameraPhoto(getApplicationContext());
 

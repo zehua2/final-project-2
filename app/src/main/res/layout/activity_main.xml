@@ -101,4 +101,13 @@
         android:clickable="true"
         android:text="Contrast" />
 
+    <Button
+        android:id="@+id/revert"
+        android:layout_width="77dp"
+        android:layout_height="36dp"
+        android:layout_alignBottom="@+id/ivImage"
+        android:layout_alignEnd="@+id/saturation"
+        android:clickable="true"
+        android:text="REVERT" />
+
 </RelativeLayout>
