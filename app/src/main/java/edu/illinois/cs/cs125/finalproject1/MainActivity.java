@@ -30,14 +30,13 @@ public class MainActivity extends AppCompatActivity {
 
     private final String TAG = this.getClass().getName();
 
-    ImageView ivCamera, ivGallery, ivImage;
+    ImageView ivGallery, ivImage;
     CameraPhoto cameraPhoto;
     GalleryPhoto galleryPhoto;
 
     final int CAMERA_REQUEST = 12332;
     final int GALLERY_REQUEST = 2200;
 
-    ImageView imageView;
     Bitmap original;
 
     @Override
@@ -149,10 +148,10 @@ public class MainActivity extends AppCompatActivity {
         galleryPhoto = new GalleryPhoto(getApplicationContext());
 
         ivImage = (ImageView)findViewById(R.id.ivImage);
-        ivCamera = (ImageView)findViewById(R.id.ivCamera);
+        /*ivCamera = (ImageView)findViewById(R.id.ivCamera);*/
         ivGallery = (ImageView)findViewById(R.id.ivGallery);
 
-        ivCamera.setOnClickListener(new View.OnClickListener() {
+        /*ivCamera.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Log.d(TAG,"button clicked");
@@ -165,7 +164,7 @@ public class MainActivity extends AppCompatActivity {
                             "Something Wrong while taking photos", Toast.LENGTH_SHORT).show();
                 }
             }
-        });
+        });*/
 
         ivGallery.setOnClickListener(new View.OnClickListener() {
             @Override
